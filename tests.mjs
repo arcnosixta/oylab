@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {gini,fit,predict,forest,forestPredict,makeData,regressionData,boosting} from './dist/models.js';
+assert.equal(gini([0,0,1,1]),.5);assert.equal(gini([1,1]),0);assert.equal(gini([]),0);
+const rows=[{x:[0],y:0},{x:[.1],y:0},{x:[.8],y:1},{x:[1],y:1}];
+const t=fit(rows,2);assert.equal(predict(t,[.05]),0);assert.equal(predict(t,[.9]),1);assert.equal(fit(rows,0).left,undefined);
+const f=forest(makeData(),9);assert.equal(f.length,9);assert.ok(f.every(t=>t.indices.length===40));assert.deepEqual(f,forest(makeData(),9));assert.ok([0,1].includes(forestPredict(f,[.3,.7])));
+const train=regressionData(),valid=regressionData(29,99),b=boosting(train,valid,30,.2);
+assert.ok(b.history[30].train<b.history[0].train);assert.equal(b.history.length,31);assert.equal(b.trees.length,30);
+for(let i=1;i<b.history.length;i++)assert.ok(b.history[i].train<=b.history[i-1].train+1e-10);
+const one=boosting(train,valid,1,.2);assert.ok(Number.isFinite(one.predict([.5])));assert.equal(boosting(train,valid,0).predict([.5]),b.base);
+console.log('PASS: Gini, CART split, depth, bootstrap, reproducibility, majority vote, residual boosting and MSE.');

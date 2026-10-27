@@ -1,6 +1,7 @@
 import {mean,gini,fit,predict,pathOf,forest,forestPredict,makeData,regressionData,boosting,rng} from './models.js';
 import {courses,lessons} from './lessons.js';
 import {mountExperience} from './experience.js';
+import {reviseLessons} from './revised-lessons.js';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const NS='http://www.w3.org/2000/svg';
 let state;try{state=JSON.parse(localStorage.getItem('oylab-v1'))||{}}catch{state={}}
@@ -27,6 +28,7 @@ function renderLesson(){document.title=`${course.name} — OYLAB`;$('#main').inn
  window.addEventListener('scroll',()=>{const p=scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight);$('.progress-line').style.width=`${p*100}%`},{passive:true});
  if(ci===0)initTree();if(ci===1)initForest();if(ci===2)initBoost();
  mountExperience(ci,{getStep:()=>state.steps,setStep:n=>{state.steps=n;$('#steps').value=n;save();updateBoost()}});
+ reviseLessons(ci);
 }
 let rows=state.extra?.length?makeData().concat(state.extra.slice(0,30)):makeData(),test=makeData(25,872),tree,trees,view='tree',pointClass=1,selected=0,boostModel;
 const accuracy=(fn,rs)=>mean(rs.map(r=>+(fn(r.x)===r.y)))*100;

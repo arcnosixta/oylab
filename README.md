@@ -5,8 +5,8 @@
 **Публичный сайт: [Открыть OYLAB](https://oylab-ml-journey.kiregami.chatgpt.site)**
 
 - [Decision Tree — выращивание дерева](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/)
-- [Random Forest — панель ансамбля](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
-- [Gradient Boosting — лента исправлений](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
+- [Random Forest — орбита моделей и шесть разделов исследования](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
+- [Gradient Boosting — светлая студия корректировок и горизонтальные уроки](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
 
 Static HTML / CSS / ES modules. No production dependencies or backend. Serve `dist/` using any static server. Routes: `/`, `/decision-tree/`, `/random-forest/`, `/gradient-boosting/`.
 

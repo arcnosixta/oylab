@@ -2,6 +2,12 @@
 
 Қазақ тіліндегі интерактивті ML зертханасы.
 
+**Публичный сайт: [Открыть OYLAB](https://oylab-ml-journey.kiregami.chatgpt.site)**
+
+- [Decision Tree — выращивание дерева](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/)
+- [Random Forest — панель ансамбля](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
+- [Gradient Boosting — лента исправлений](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
+
 Static HTML / CSS / ES modules. No production dependencies or backend. Serve `dist/` using any static server. Routes: `/`, `/decision-tree/`, `/random-forest/`, `/gradient-boosting/`.
 
 Run `node tests.mjs` to check model math. `python -m http.server 8080 --directory dist` starts local preview.

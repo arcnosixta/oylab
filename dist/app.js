@@ -2,6 +2,7 @@ import {mean,gini,fit,predict,pathOf,forest,forestPredict,makeData,regressionDat
 import {courses,lessons} from './lessons.js';
 import {mountExperience} from './experience.js';
 import {reviseLessons} from './revised-lessons.js';
+import {renderXGBoost,addXGBoostLink} from './xgboost-page.js';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const NS='http://www.w3.org/2000/svg';
 let state;try{state=JSON.parse(localStorage.getItem('oylab-v1'))||{}}catch{state={}}
@@ -80,4 +81,4 @@ function updateBoost(){boostModel=boosting(trainR,validR,state.steps,state.rate)
  chart+=`<path d="M8 67H410" stroke="var(--line)"/><text x="8" y="79" fill="var(--muted)" font-size="7">0</text><text x="400" y="79" fill="var(--muted)" font-size="7">40</text></svg>`;$('#loss-chart').innerHTML=chart;$('#scene-status').textContent=`${trainR.length} оқыту / ${validR.length} validation нүктесі · η = ${state.rate.toFixed(2)} · CART тереңдігі 2`;
  const i=8,x=trainR[i].x,old=boosting(trainR,validR,Math.max(0,state.steps-1),state.rate).predict(x),h=state.steps?predict(m.trees.at(-1),x):0;$('#boost-example').innerHTML=state.steps?`<b>Нақты мысал, x = ${x[0].toFixed(2)}:</b><br>Алдыңғы болжам ${old.toFixed(3)} + ${state.rate.toFixed(2)} × түзету ${h.toFixed(3)} = <b>${m.predict(x).toFixed(3)}</b>.<br>Шын мән: ${trainR[i].y.toFixed(3)}. Жаңа қалдық: ${(trainR[i].y-m.predict(x)).toFixed(3)}.`:`Алғашқы болжам — орташа мән: <b>${m.base.toFixed(3)}</b>. Жаңа ағаш қосып, есептің өзгеруін көр.`;
 }
-if(ci<0)renderHome();else renderLesson();
+if(slug==='xgboost')renderXGBoost();else if(ci<0)renderHome();else{renderLesson();if(ci===2)addXGBoostLink()}

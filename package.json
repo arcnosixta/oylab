@@ -1,1 +1,1 @@
-{"name":"oylab","private":true,"type":"module","scripts":{"test":"node tests.mjs","start":"python -m http.server 8080 --directory dist"}}
+{"name":"oylab","private":true,"type":"module","scripts":{"test":"node tests.mjs && node xgboost-model.test.mjs","start":"python -m http.server 8080 --directory dist"}}

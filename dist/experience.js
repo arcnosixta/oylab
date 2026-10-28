@@ -27,11 +27,6 @@ export function mountExperience(index, hooks) {
  }
  body.classList.add(index===1?'forest-command':'boost-cinema');
  body.insertBefore(lab,story);
- // Preserve the same mounted scene and controls when it becomes the smaller companion.
- const sentinel=document.createElement('div');sentinel.className='companion-sentinel';sentinel.setAttribute('aria-hidden','true');body.insertBefore(sentinel,lab);
- let scheduled=false;
- const compact=()=>{scheduled=false;const y=sentinel.getBoundingClientRect().top;if(y<40)lab.classList.add('is-companion');else if(y>150)lab.classList.remove('is-companion')};
- addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(compact)}},{passive:true});compact();
  const stage=document.createElement('div');stage.className='experience-kicker';stage.innerHTML=index===1?'<span>АНСАМБЛЬ ПУЛЬТІ</span><p>Бір таңдама. Көп көзқарас. Ортақ шешім.</p>':'<span>ҚАТЕНІ ТҮЗЕТУ СТУДИЯСЫ</span><p>Уақытты басқар. Әр ағаштың үлесін зертте.</p>';lab.before(stage);
  if(index===1)mountForest(story,lab,hooks);else mountBoost(story,lab,hooks);
 }

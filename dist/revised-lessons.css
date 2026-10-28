@@ -111,3 +111,58 @@
  .boost-studio .boost-story .split-copy{display:block}
 }
 @media(prefers-reduced-motion:reduce){.boost-studio .boost-story{scroll-behavior:auto}}
+
+/* Reading comes first. Experiments stay in normal document flow at the end. */
+body.reading-first .lesson-body{display:block;overflow-anchor:auto}
+body.reading-first .lab,body.reading-first .lab.is-companion{position:relative;top:auto;order:initial;max-height:none;overflow:hidden}
+body.reading-first .story,body.reading-first .forest-dossiers,body.reading-first .boost-story{display:block;max-width:900px;margin:0 auto;padding:15px 0 0;overflow:visible;scroll-snap-type:none;scroll-margin-top:110px}
+body.reading-first .story:before{display:none}
+body.reading-first .story>.story-step{display:block;border:0;border-bottom:1px solid var(--line);background:transparent;padding:45px 0;min-height:0;margin:0;scroll-margin-top:110px}
+body.reading-first .story>.story-step h2{font-size:32px;margin:16px 0 24px}
+body.reading-first .story>.story-step p{max-width:none;font-size:14px}
+body.reading-first .timeline-marker{display:none}
+body.reading-first .chapter-nav{scroll-margin-top:110px;margin:0 0 15px;justify-content:start}
+body.reading-first .experiment-intro{padding:65px 0 25px;border-top:1px solid var(--line);margin-top:45px;scroll-margin-top:110px}
+.experiment-intro h2{font-size:40px;font-weight:500;letter-spacing:-1.5px;margin:20px 0 15px}
+.experiment-intro p{color:var(--muted);max-width:650px;font-size:13px}
+.experiment-jump{margin-top:12px}
+body.reading-first .forest-exam .quiz-item{display:block}
+body.reading-first .lab .lab-scene{max-height:none}
+body.reading-first .lab .lab-controls{max-height:none}
+.multiverse{padding-top:25px;padding-bottom:65px}
+.multiverse-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.multiverse figure{margin:0;min-width:0}
+.multiverse figure img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line)}
+.multiverse figcaption{color:var(--muted);font-size:9px;line-height:1.8;margin-top:12px}
+.multiverse figcaption a,.multiverse-source{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.multiverse-source{font-size:10px}
+.multiverse h2{font-size:38px;line-height:1.25;font-weight:500;letter-spacing:-1.3px;margin:18px 0}
+.multiverse h2 em{font-style:normal;color:var(--accent)}
+.multiverse-intro p{font-size:13px;line-height:1.9;color:var(--muted)}
+.multiverse-play{margin-top:35px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:radial-gradient(ellipse at 50% 10%,#49e6a112,transparent 75%),var(--panel)}
+.multiverse-bar{display:flex;justify-content:space-between;padding:17px 23px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:2px;color:var(--muted)}
+#universe-tree{overflow-x:auto;padding:15px 10px 0}
+#universe-tree svg{width:100%;min-width:650px;display:block}
+#universe-tree [role=button]{cursor:pointer}
+#universe-tree [role=button]:focus-visible{outline:0;filter:drop-shadow(0 0 5px var(--accent))}
+.universe-controls{border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:25px;padding:24px}
+.universe-controls h3{font-size:21px;font-weight:500;margin:8px 0}
+.universe-controls p{font-size:11px;color:var(--muted);max-width:480px;margin:0}
+.universe-buttons{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.universe-buttons button[hidden]{display:none}
+.multiverse-meaning{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin:25px 0 0;font-size:12px;color:var(--muted)}
+.multiverse-meaning b{color:var(--ink);font-weight:600}
+@media(max-width:720px){
+ body.reading-first .story>.story-step{padding:30px 0;scroll-margin-top:88px}
+ body.reading-first .story>.story-step h2{font-size:27px}
+ body.reading-first .story>.story-step p{font-size:12px}
+ body.reading-first .experiment-intro{padding:35px 0 15px;margin-top:25px;scroll-margin-top:88px}
+ .experiment-intro h2{font-size:30px}
+ .multiverse{padding-bottom:40px}.multiverse-intro{grid-template-columns:1fr;gap:25px}
+ .multiverse h2{font-size:31px}.multiverse-intro p{font-size:12px}
+ .multiverse-bar{padding:12px;font-size:7px;letter-spacing:1px}
+ .universe-controls{display:block;padding:18px}.universe-buttons{margin-top:20px;gap:7px}
+ .universe-buttons .btn{font-size:10px;padding:10px 13px}
+ .multiverse-meaning{grid-template-columns:1fr;gap:8px;font-size:11px}
+ #universe-tree{padding-bottom:12px}
+}

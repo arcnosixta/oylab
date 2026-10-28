@@ -5,8 +5,12 @@
 **Публичный сайт: [Открыть OYLAB](https://oylab-ml-journey.kiregami.chatgpt.site)**
 
 - [Decision Tree — выращивание дерева](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/)
-- [Random Forest — орбита моделей и шесть разделов исследования](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
-- [Gradient Boosting — светлая студия корректировок и горизонтальные уроки](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
+- [Random Forest — урок, затем лаборатория ансамбля](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
+- [Gradient Boosting — урок, затем студия корректировок](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
+
+На страницах Random Forest и Gradient Boosting сначала показаны все объяснения и проверка знаний, затем интерактивные графики. Лаборатории не закрепляются при прокрутке. В Decision Tree добавлен пример дерева событий мультивселенной с двумя выборами и четырьмя исходами; это заранее заданная учебная история, отличная от обучения модели по данным.
+
+Кадр дерева времени из «Loki», сезон 2 (2023): © Marvel Studios, [источник изображения — 20minutos](https://www.20minutos.es/cinemania/series/final-loki-temporada-2-explicado-peor-momento-marvel-5189130/). Визуальная идея дерева времени описана создателями эффектов: [Framestore](https://www.framestore.com/work/loki-season-2). Изображение хранится локально в `dist/assets/loki-multiverse.jpg`.
 
 Static HTML / CSS / ES modules. No production dependencies or backend. Serve `dist/` using any static server. Routes: `/`, `/decision-tree/`, `/random-forest/`, `/gradient-boosting/`.
 

@@ -1,26 +1,140 @@
-# OYLAB
+<div align="center">
 
-Қазақ тіліндегі интерактивті ML зертханасы.
+<h1>OYLAB</h1>
 
-**Публичный сайт: [Открыть OYLAB](https://oylab-ml-journey.kiregami.chatgpt.site)**
+<p><strong>Ағаштан интеллектке.</strong><br>От одного дерева — к моделям, которые учатся на своих ошибках.</p>
 
-- [Decision Tree — выращивание дерева](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/)
-- [Random Forest — урок, затем лаборатория ансамбля](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/)
-- [Gradient Boosting — урок, затем студия корректировок](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/)
-- [XGBoost — дополнительный урок и лаборатория регуляризации](https://oylab-ml-journey.kiregami.chatgpt.site/xgboost/)
+<p>Интерактивная лаборатория машинного обучения на казахском языке.<br>Читай объяснения, меняй параметры и наблюдай, как меняется результат.</p>
 
-Из урока Gradient Boosting на XGBoost ведёт кликабельный блок. Урок начинается с простого примера: прогноз урожая 3 кг, фактический результат 5 кг и постепенная поправка. Ползунки подписаны обычными словами; готовые настройки помогают сравнить размер поправок и отказ от лишней ветки. Градиенты, Гессиан, веса листьев и Gain вынесены в закрытый по умолчанию блок «Есеп қалай жасалады?». Расчёты остаются настоящими: регуляризованные деревья глубины 1 с λ, γ и learning rate; это учебная модель, а не запуск библиотеки XGBoost.
+<a href="https://oylab-ml-journey.kiregami.chatgpt.site"><img src="docs/images/open-site.svg" alt="Открыть публичный сайт OYLAB" width="280"></a>
 
-На страницах Random Forest и Gradient Boosting сначала показаны все объяснения и проверка знаний, затем интерактивные графики. Лаборатории не закрепляются при прокрутке. В Decision Tree добавлен пример дерева событий мультивселенной с двумя выборами и четырьмя исходами; это заранее заданная учебная история, отличная от обучения модели по данным.
+<p><a href="https://oylab-ml-journey.kiregami.chatgpt.site">Публичная версия</a> · <a href="#уроки">Уроки</a> · <a href="#скриншоты">Скриншоты</a> · <a href="#запуск-локально">Запуск</a></p>
 
-Кадр дерева времени из «Loki», сезон 2 (2023): © Marvel Studios. Использован предоставленный пользователем скриншот `Screenshot 2026-10-28 111902.png` (1919 × 1079), сохранённый без изменений и сжатия в `dist/assets/loki-multiverse-screenshot.png`. Визуальная идея дерева времени описана создателями эффектов: [Framestore](https://www.framestore.com/work/loki-season-2).
+</div>
 
-Static HTML / CSS / ES modules. No production dependencies or backend. Serve `dist/` using any static server. Routes: `/`, `/decision-tree/`, `/random-forest/`, `/gradient-boosting/`, `/xgboost/`.
+[![Главная страница OYLAB: от дерева решений к ансамблям](docs/images/home.jpg)](https://oylab-ml-journey.kiregami.chatgpt.site)
 
-Run `npm test` to check the original model math and second-order regularized boosting formulas (`node tests.mjs` and `node xgboost-model.test.mjs`). `python -m http.server 8080 --directory dist` starts local preview.
+## Идея проекта
 
-Models are small real educational implementations: binary CART with Gini, bootstrap random forest with one random feature per split, and residual gradient boosting with squared error and depth-two regression trees. Fixed, separate synthetic train and test/validation datasets. User-added classification data and learning settings persist in browser localStorage. Forest ties select class A.
+Понять алгоритм легче, когда можно проверить его самому. В OYLAB теория связана с живыми моделями: дерево растёт, лес объединяет голоса, а бустинг шаг за шагом уточняет прогноз.
 
-Content draws on the supplied lecture's Decision Tree slides and the scikit-learn ensemble user guide: https://scikit-learn.org/stable/modules/ensemble.html . The supplied slide text contains little Random Forest or Gradient Boosting material; these sections were independently developed.
+Объяснения идут от бытового примера к эксперименту. На страницах Random Forest и Gradient Boosting сначала расположен весь учебный материал, затем лаборатория: графики не перекрывают текст при прокрутке. У XGBoost есть простой пример с урожаем яблок, а формулы можно раскрыть по желанию.
 
-Lesson route index files share the application shell and load shared modules. The XGBoost route has its own initial title; preserve it when copying changes from `dist/index.html`.
+## Уроки
+
+| Урок | Что можно попробовать |
+| --- | --- |
+| [**01 · Decision Tree**](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/) | Вырастить дерево, провести точку по ветвям, изменить глубину и разобраться в Gini. |
+| [**02 · Random Forest**](https://oylab-ml-journey.kiregami.chatgpt.site/random-forest/) | Посмотреть bootstrap-выборки, изменить число деревьев и собрать их голоса в общий ответ. |
+| [**03 · Gradient Boosting**](https://oylab-ml-journey.kiregami.chatgpt.site/gradient-boosting/) | Добавлять деревья-корректоры, менять learning rate, сравнивать ошибки на обучающих и проверочных данных. |
+| [**04 · XGBoost**](https://oylab-ml-journey.kiregami.chatgpt.site/xgboost/) | На примере урожая понять постепенные поправки, сравнить готовые настройки и увидеть, когда лишняя ветка не нужна. |
+
+В уроках есть вопросы для самопроверки. Страница XGBoost открывается также через отдельный блок внутри Gradient Boosting.
+
+## Скриншоты
+
+Скриншоты сделаны с опубликованного сайта. На них показаны работающие учебные модели.
+
+| Decision Tree | Random Forest |
+| :---: | :---: |
+| ![Дерево решений: ветвление, глубина и путь выбранной точки](docs/images/decision-tree.jpg) | ![Лес независимых деревьев вокруг общего прогноза](docs/images/random-forest.jpg) |
+| Один вопрос → две ветви → решение | Разные модели → голоса → общий ответ |
+
+| Gradient Boosting | XGBoost |
+| :---: | :---: |
+| ![Бустинг: прогноз, остатки и последовательность исправлений](docs/images/gradient-boosting.jpg) | ![Учебная лаборатория XGBoost: настройки и результат поправки](docs/images/xgboost.jpg) |
+| Каждый шаг уточняет общий прогноз | Поправки с контролем сложности |
+
+<details>
+<summary><strong>Посмотреть мобильную версию</strong></summary>
+
+<p align="center"><img src="docs/images/mobile.jpg" alt="Урок XGBoost на экране телефона" width="280"></p>
+
+Интерфейс адаптируется к небольшому экрану. Кнопки и ползунки доступны с клавиатуры; анимация учитывает настройку уменьшения движения.
+
+</details>
+
+## Мультивселенная как дерево событий
+
+Один момент может вести к разным историям. В уроке Decision Tree эта идея показана через образ дерева времени из «Локи»: пользователь делает два выбора и приходит к одному из четырёх исходов.
+
+<p align="center"><img src="dist/assets/loki-multiverse-screenshot.png" alt="Дерево времени из Loki: от общего ствола расходятся многочисленные ветви" width="900"></p>
+
+*Loki, сезон 2 (2023), © Marvel Studios. Скриншот предоставлен пользователем.*
+
+[**Попробовать дерево событий ↗**](https://oylab-ml-journey.kiregami.chatgpt.site/decision-tree/#multiverse)
+
+Это заранее заданная учебная история. Она помогает понять корень, ветви и листья. Обучаемое дерево решений использует похожую структуру, но выбирает условия разделения по данным.
+
+## Что происходит под капотом
+
+Вычисления выполняются в браузере на небольших синтетических наборах данных:
+
+- **Decision Tree:** бинарные разделения по Gini, ограничение глубины и предсказание класса.
+- **Random Forest:** bootstrap-выборка для каждого дерева, случайный выбор одного признака при разделении, итоговое голосование. При равенстве голосов выбирается класс A.
+- **Gradient Boosting:** регрессионные деревья глубины 2 обучаются на остатках; их поправки добавляются к общему прогнозу.
+- **Пример XGBoost:** деревья глубины 1 с градиентами, вторыми производными, L2-регуляризацией и оценкой Gain. Это учебная реализация основных формул, а не подключённая библиотека XGBoost.
+
+Для оценки используются отдельные тестовые или validation-данные там, где это предусмотрено уроком. Лаборатория XGBoost показывает ошибку на своих восьми обучающих примерах. Хороший результат на этих примерах сам по себе не доказывает качество на новых данных.
+
+Настройки первых трёх лабораторий и добавленные точки классификации сохраняются в `localStorage` браузера.
+
+## Запуск локально
+
+Для запуска нужен **Python 3**. Сборка и установка npm-пакетов не требуются.
+
+```bash
+git clone https://github.com/arcnosixta/oylab.git
+cd oylab
+python -m http.server 8080 --directory dist
+```
+
+Открой [localhost:8080](http://localhost:8080).
+
+Если установлен Node.js, тот же сервер можно запустить командой `npm start`; Python всё равно нужен. Для шрифта используется Google Fonts, поэтому без интернета браузер подставит запасной шрифт.
+
+## Проверка расчётов
+
+Нужны **Node.js и npm**. Внешние зависимости устанавливать не нужно.
+
+```bash
+npm test
+```
+
+Тесты проверяют Gini, разделения и глубину дерева, bootstrap, воспроизводимость, голосование, обучение на остатках, расчёт MSE, веса листьев, регуляризацию и отклонение невыгодного разделения.
+
+## Структура
+
+```text
+oylab/
+├── dist/                       # Готовый статический сайт
+│   ├── index.html              # Главная страница
+│   ├── decision-tree/          # Урок 01
+│   ├── random-forest/          # Урок 02
+│   ├── gradient-boosting/      # Урок 03
+│   ├── xgboost/                # Дополнительный урок
+│   ├── assets/                # Изображение мультивселенной
+│   ├── app.js                 # Навигация и основные интерактивы
+│   ├── models.js              # Дерево, лес и градиентный бустинг
+│   ├── lessons.js             # Учебные тексты и вопросы
+│   ├── xgboost-lesson.js       # Простое объяснение XGBoost
+│   ├── xgboost-model.js        # Расчёты учебной модели
+│   └── *.css                  # Оформление и адаптивная вёрстка
+├── docs/images/               # Скриншоты для README
+├── tests.mjs                  # Проверки основных алгоритмов
+├── xgboost-model.test.mjs      # Проверки регуляризованного бустинга
+└── package.json               # Команды запуска и тестирования
+```
+
+Стек: **HTML · CSS · JavaScript ES modules · SVG**. Приложение статическое, без серверной части и зависимостей времени выполнения. При правках общей HTML-оболочки обновляй также `index.html` в каталогах уроков; у XGBoost сохраняй собственный заголовок страницы.
+
+## Материалы и источники
+
+- Предоставленная презентация 9-й лекции — основа объяснений Decision Tree. Разделы об ансамблях дополнены отдельно.
+- [scikit-learn: ансамбли и градиентный бустинг](https://scikit-learn.org/stable/modules/ensemble.html).
+- [XGBoost: деревья, целевая функция и регуляризация](https://xgboost.readthedocs.io/en/stable/tutorials/model.html).
+- [Framestore: визуальная идея дерева времени в Loki](https://www.framestore.com/work/loki-season-2).
+
+---
+
+<p align="center"><strong>Сначала понять. Потом изменить. Потом увидеть результат.</strong><br><a href="https://oylab-ml-journey.kiregami.chatgpt.site">Открыть OYLAB ↗</a></p>

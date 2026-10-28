@@ -10,7 +10,7 @@
 
 На страницах Random Forest и Gradient Boosting сначала показаны все объяснения и проверка знаний, затем интерактивные графики. Лаборатории не закрепляются при прокрутке. В Decision Tree добавлен пример дерева событий мультивселенной с двумя выборами и четырьмя исходами; это заранее заданная учебная история, отличная от обучения модели по данным.
 
-Кадр дерева времени из «Loki», сезон 2 (2023): © Marvel Studios, [источник изображения — 20minutos](https://www.20minutos.es/cinemania/series/final-loki-temporada-2-explicado-peor-momento-marvel-5189130/). Визуальная идея дерева времени описана создателями эффектов: [Framestore](https://www.framestore.com/work/loki-season-2). Изображение хранится локально в `dist/assets/loki-multiverse.jpg`.
+Кадр дерева времени из «Loki», сезон 2 (2023): © Marvel Studios. Использован предоставленный пользователем скриншот `Screenshot 2026-10-28 111902.png` (1919 × 1079), сохранённый без изменений и сжатия в `dist/assets/loki-multiverse-screenshot.png`. Визуальная идея дерева времени описана создателями эффектов: [Framestore](https://www.framestore.com/work/loki-season-2).
 
 Static HTML / CSS / ES modules. No production dependencies or backend. Serve `dist/` using any static server. Routes: `/`, `/decision-tree/`, `/random-forest/`, `/gradient-boosting/`.
 
